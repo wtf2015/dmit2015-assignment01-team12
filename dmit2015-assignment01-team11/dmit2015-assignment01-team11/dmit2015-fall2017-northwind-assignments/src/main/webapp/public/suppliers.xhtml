@@ -1,0 +1,76 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	xmlns:b="http://bootsfaces.net/ui"
+	template="/WEB-INF/templates/bootsfaces-dashboard.xhtml">
+	
+	<ui:param name="title" value="Northwind - Suppliers" />
+	
+	<ui:define name="externalstyles">
+	</ui:define>
+	
+	<ui:define name="internalstyles">
+	</ui:define>
+
+	<ui:define name="maincontent">
+		<h1>List of Suppliers</h1>
+		
+		<b:messages id="messages"></b:messages>	
+		
+		
+		<h:form>
+		
+			<b:dataTable value="#{supplierController.supplier}" var="supplier">	
+		
+			<b:dataTableColumn value="#{supplier.supplierID}">
+					<f:facet name="header">
+						SupplierID
+					</f:facet>
+			</b:dataTableColumn>
+			
+				<b:dataTableColumn value="#{supplier.companyName}">
+					<f:facet name="header">
+						CompanyName
+					</f:facet>
+				</b:dataTableColumn>
+				
+			<b:dataTableColumn value="#{supplier.contactName}">
+					<f:facet name="header">
+						ContactName
+					</f:facet>
+				</b:dataTableColumn>
+			<b:dataTableColumn value="#{supplier.contactTitle}">
+					<f:facet name="header">
+						ContactTitle
+					</f:facet>
+				</b:dataTableColumn>
+			<b:dataTableColumn value="#{supplier.city}">
+					<f:facet name="header">
+						City
+					</f:facet>
+				</b:dataTableColumn>	
+			<b:dataTableColumn value="#{supplier.country}">
+					<f:facet name="header">
+						Country
+					</f:facet>
+				</b:dataTableColumn>
+				
+			<b:dataTableColumn value="#{supplier.phone}">
+					<f:facet name="header">
+						Phone
+					</f:facet>
+				</b:dataTableColumn>
+				
+				</b:dataTable>
+		</h:form>			
+	</ui:define>
+
+</ui:composition>

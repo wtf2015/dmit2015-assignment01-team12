@@ -1,0 +1,110 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:p="http://primefaces.org/ui"  
+	xmlns:hf="http://highfaces.org" 
+	template="/WEB-INF/templates/bootsfaces-dashboard.xhtml">
+	
+	<ui:param name="title" value="[put page title here]" />
+	
+	<ui:define name="externalstyles">
+	</ui:define>
+	
+	<ui:define name="internalstyles">
+	</ui:define>
+
+	<ui:define name="maincontent">
+		<b:jumbotron>
+			<h1>Find Invoice by Customer</h1>
+		</b:jumbotron>
+		
+		<b:messages id="messages" />
+		
+		<b:form id="queryForm">
+			<b:row>
+				<b:column span="11">
+					<b:selectOneMenu id="customerId" value="#{orderController.currentSelectedCustomerId}">
+						<f:selectItem itemLabel="Choose a Customer" itemValue="" noSelectionOption="true" />
+						<f:selectItems value="#{customerController.customer}" 
+							var="customer"
+							itemLabel="#{customer.lastNamme}, #{customer.firstName}"
+							itemValue="#{customer.customerID}" />
+					</b:selectOneMenu>
+				</b:column>
+				<b:column span="1">
+					<b:commandButton value="Search"
+						look="primary"
+						ajax="true"
+						update="queryResultListPanel querySingleResultPanel :messages"
+						actionListener="#{orderController.findAllInvoicesByCustomer()}">
+					</b:commandButton>
+				</b:column>
+			</b:row>
+			
+			<p:outputPanel id="queryResultListPanel">
+				<b:panel title="Invoices by Customer" rendered="#{not empty orderController.invoicesByCustomer}">
+					<b:dataTable id="queryResultListTable"
+						value="#{orderController.invoicesByCustomer}"
+						var="order"
+						searching="false"
+						paginated="false">
+						
+						<b:dataTableColumn value="#{order.orderID}" />
+						
+						<b:dataTableColumn >
+							<f:facet name="header">
+								Order Date
+							</f:facet>
+							<h:outputText value="#{order.orderDate}">
+								<f:convertDateTime pattern="MMM d, yyyy"/>
+							</h:outputText>
+						</b:dataTableColumn>
+						
+						<b:dataTableColumn >
+							<f:facet name="header">
+								Shipped Date
+							</f:facet>
+							<h:outputText value="#{order.shippedDate}">
+								<f:convertDateTime pattern="MMM d, yyyy"/>
+							</h:outputText>
+						</b:dataTableColumn>
+						
+						<b:dataTableColumn styleClass="text-right">
+							<f:facet name="header">
+								Employee
+							</f:facet>
+							<h:outputText value="#{order.employee.firstName} #{order.employee.lastName}">
+							</h:outputText>
+						</b:dataTableColumn>
+						
+						<b:dataTableColumn>
+							<f:facet name="header">
+								Action
+							</f:facet>
+							<b:commandButton value="view details" 
+								look="link"
+								actionListener="#{}"
+								ajax="true" update="">
+							</b:commandButton>
+						</b:dataTableColumn>
+					</b:dataTable>
+				</b:panel>
+			</p:outputPanel>
+			
+		</b:form>
+		
+		
+	
+				
+	</ui:define>
+
+</ui:composition>

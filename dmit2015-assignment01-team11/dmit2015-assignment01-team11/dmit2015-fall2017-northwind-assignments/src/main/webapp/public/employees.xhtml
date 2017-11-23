@@ -1,0 +1,86 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	xmlns:b="http://bootsfaces.net/ui"
+	template="/WEB-INF/templates/bootsfaces-dashboard.xhtml">
+	
+	<ui:param name="title" value="Northwind - Employees" />
+	
+	<ui:define name="externalstyles">
+	</ui:define>
+	
+	<ui:define name="internalstyles">
+	</ui:define>
+
+	<ui:define name="maincontent">
+		<h1>List of Employees</h1>
+		<b:messages id="messages"></b:messages>		
+		
+		<h:form>
+			<b:dataTable value="#{employeeController.employees}" var="employee">
+				<b:dataTableColumn value="#{employee.employeeID}">
+				</b:dataTableColumn>
+				<b:dataTableColumn value="#{employee.lastName}">
+					<f:facet name="header">
+						LastName
+					</f:facet>
+				</b:dataTableColumn>
+				<b:dataTableColumn value="#{employee.firstName}">
+					<f:facet name="header">
+						FirstName
+					</f:facet>
+				</b:dataTableColumn>
+				<b:dataTableColumn value="#{employee.title}">
+					<f:facet name="header">
+						Title
+					</f:facet>
+				</b:dataTableColumn>
+				<b:dataTableColumn value="#{employee.homePhone}">
+					<f:facet name="header">
+						HomePhone
+					</f:facet>
+				</b:dataTableColumn>
+				<b:dataTableColumn value="#{employee.extension}">
+					<f:facet name="header">
+						Extension
+					</f:facet>
+				</b:dataTableColumn>
+				<b:dataTableColumn value="#{employee.employee.firstName} #{employee.employee.lastName}">
+					<f:facet name="header">
+						ReportsTo
+					</f:facet>
+				</b:dataTableColumn>
+				<b:dataTableColumn>
+					<f:facet name="header">
+						Orders
+					</f:facet>
+					<b:navCommandLink outcome="ordersbyemployee.xhtml">
+						<f:param name="employeeid" value="#{employee.employeeID}" />
+						<f:param name="lastName" value="#{employee.lastName}" />
+						<f:param name="firstName" value="#{employee.firstName}" />		
+										
+						view orders
+					</b:navCommandLink>
+					<br />
+					<b:navCommandLink outcome="employeedetail.xhtml">
+						<f:param name="id" value="#{employee.employeeID}"></f:param>
+						view detail
+					</b:navCommandLink>
+					
+				</b:dataTableColumn>
+				
+			</b:dataTable>
+		</h:form>
+		
+				
+	</ui:define>
+
+</ui:composition>

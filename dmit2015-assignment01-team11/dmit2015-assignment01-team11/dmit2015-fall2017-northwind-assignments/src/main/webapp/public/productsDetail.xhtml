@@ -1,0 +1,143 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	xmlns:b="http://bootsfaces.net/ui"
+	template="/WEB-INF/templates/bootsfaces-dashboard.xhtml"
+                   xmlns:p="http://primefaces.org/ui">
+	
+	<ui:param name="title" value="Northwind - Products" />
+	
+	<ui:define name="externalstyles">
+	</ui:define>
+	
+	<ui:define name="internalstyles">
+	</ui:define>
+
+	<ui:define name="maincontent">
+		<f:metadata>
+			<f:viewParam name="id" value="#{productController.currentSelectedProductId}" />
+			<f:event listener="#{productController.findProduct()}" type="preRenderView" />
+		</f:metadata>
+	
+		<b:messages id="messages" />
+	
+		<b:form id="productForm">
+			<b:panel collapsible="false" 
+			rendered="#{productController.currentSelectedProduct != null}">
+				<h1>Product Detail</h1>
+				<br />
+				<b:row>
+					<b:column medium-screen="2">
+						<h:outputLabel value="Product ID:" />
+					<br />
+					</b:column>
+					<b:column medium-screen="6">
+						<h:outputText value="#{productController.currentSelectedProduct.productID}" />
+					<br />
+					</b:column>
+				</b:row>
+				<b:row>
+					<b:column medium-screen="2">
+						<h:outputLabel value="Product Name:" />
+					<br />
+					</b:column>
+					<b:column medium-screen="6">
+						<h:outputText value="#{productController.currentSelectedProduct.productName}" />
+					<br />
+					</b:column>
+				</b:row>
+				<b:row>
+					<b:column medium-screen="2">
+						<h:outputLabel value="Supplier:" />
+					<br />
+					</b:column>
+					<b:column medium-screen="6">
+						<h:outputText value="#{productController.currentSelectedProduct.supplier.companyName}" />
+					<br />
+					</b:column>
+				</b:row>
+				<b:row>
+					<b:column medium-screen="2">
+						<h:outputLabel value="Category:" />
+					<br />
+					</b:column>
+					<b:column medium-screen="6">
+						<h:outputText value="#{productController.currentSelectedProduct.category.categoryName}" />
+					<br />
+					</b:column>
+				</b:row>
+				<b:row>
+					<b:column medium-screen="2">
+						<h:outputLabel value="Quantity Per Unit:" />
+					<br />
+					</b:column>
+					<b:column medium-screen="6">
+						<h:outputText value="#{productController.currentSelectedProduct.quantityPerUnit}" />
+					<br />
+					</b:column>
+				</b:row>
+				<b:row>
+					<b:column medium-screen="2">
+						<h:outputLabel value="Unit Price:" />
+					<br />
+					</b:column>
+					<b:column medium-screen="6">
+						<h:outputText value="#{productController.currentSelectedProduct.unitPrice}" />
+					<br />
+					</b:column>
+				</b:row>
+				<b:row>
+					<b:column medium-screen="2">
+						<h:outputLabel value="Units in Stock:" />
+					<br />
+					</b:column>
+					<b:column medium-screen="6">
+						<h:outputText value="#{productController.currentSelectedProduct.unitsInStock}" />
+					<br />
+					</b:column>
+				</b:row>
+				<b:row>
+					<b:column medium-screen="2">
+						<h:outputLabel value="Units on Order:" />
+					<br />
+					</b:column>
+					<b:column medium-screen="6">
+						<h:outputText value="#{productController.currentSelectedProduct.unitsOnOrder}" />
+					<br />
+					</b:column>
+				</b:row>
+				<b:row>
+					<b:column medium-screen="2">
+						<h:outputLabel value="Reorder Level:" />
+					<br />
+					</b:column>
+					<b:column medium-screen="6">
+						<h:outputText value="#{productController.currentSelectedProduct.reorderLevel}" />
+					<br />
+					</b:column>
+				</b:row>
+				<b:row>
+					<b:column medium-screen="2">
+						<h:outputLabel value="Discontinued:" />
+					<br />
+					</b:column>
+					<b:column medium-screen="6">
+						<p:selectBooleanCheckbox value="#{productController.currentSelectedProduct.discontinued == 0? 'false' : 'true'}"/>
+					<br />
+					</b:column>
+				</b:row>
+			</b:panel>
+		</b:form>	
+	
+				
+	</ui:define>
+
+</ui:composition>

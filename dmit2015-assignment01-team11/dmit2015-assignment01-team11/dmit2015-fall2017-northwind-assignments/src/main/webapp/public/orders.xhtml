@@ -1,0 +1,66 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	xmlns:b="http://bootsfaces.net/ui"
+	template="/WEB-INF/templates/bootsfaces-dashboard.xhtml">
+	
+	<ui:param name="title" value="Northwind - Orders" />
+	
+	<ui:define name="externalstyles">
+	</ui:define>
+	
+	<ui:define name="internalstyles">
+	</ui:define>
+
+	<ui:define name="maincontent">
+		<h1>List of Orders</h1>
+		
+		<b:messages id="messages"></b:messages>		
+		
+		<h:form>
+			<b:dataTable value="#{orderController.orders}" var="order">
+				<b:dataTableColumn value="#{order.orderID}">
+				<f:facet name="header">
+						OrderID
+					</f:facet>
+				</b:dataTableColumn>
+				<b:dataTableColumn value="#{order.customer.companyName}">
+					<f:facet name="header">
+						Customer
+					</f:facet>
+				</b:dataTableColumn>
+				<b:dataTableColumn value="#{order.employee.firstName} #{order.employee.lastName}">
+					<f:facet name="header">
+						Employee
+					</f:facet>
+				</b:dataTableColumn>
+				<b:dataTableColumn value="#{of:formatDate(order.orderDate, 'yyy-MM-dd')}">
+					<f:facet name="header">
+						Order Date
+					</f:facet>
+				</b:dataTableColumn>
+				<b:dataTableColumn>
+					<f:facet name="header">
+						Action
+					</f:facet>
+					
+					<b:navCommandLink outcome="orderDetail.xhtml">
+						<f:param name="id" value="#{order.orderID}"></f:param>
+						view detail
+					</b:navCommandLink>
+					
+				</b:dataTableColumn>
+			</b:dataTable>
+		</h:form>
+				
+	</ui:define>
+
+</ui:composition>

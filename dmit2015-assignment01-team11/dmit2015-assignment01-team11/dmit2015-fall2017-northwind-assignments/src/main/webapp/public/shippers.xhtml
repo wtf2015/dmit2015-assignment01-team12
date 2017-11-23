@@ -1,0 +1,50 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	xmlns:b="http://bootsfaces.net/ui"
+	template="/WEB-INF/templates/bootsfaces-dashboard.xhtml">
+	
+	<ui:param name="NorthWindShippers" value="Northwind - Shippers" />
+	
+	<ui:define name="externalstyles">
+	</ui:define>
+	
+	<ui:define name="internalstyles">
+	</ui:define>
+	
+	<ui:define name="maincontent">
+		<h1>List of Shippers</h1>		
+		<h:form>
+	   <b:dataTable value="#{shipperController.shipper}" var="shipper">
+		
+				<b:dataTableColumn value="#{shipper.shipperID}">
+					<f:facet name="header">
+						ShipperID
+					</f:facet>
+				</b:dataTableColumn>
+		
+				<b:dataTableColumn value="#{shipper.companyName}">
+					<f:facet name="header">
+						CompanyName
+					</f:facet>
+				</b:dataTableColumn>				
+		
+				<b:dataTableColumn value="#{shipper.phone}">	
+					<f:facet name="header">
+						Phone
+					</f:facet>
+				</b:dataTableColumn>
+		</b:dataTable>
+		</h:form>
+				
+	</ui:define>
+
+</ui:composition>
