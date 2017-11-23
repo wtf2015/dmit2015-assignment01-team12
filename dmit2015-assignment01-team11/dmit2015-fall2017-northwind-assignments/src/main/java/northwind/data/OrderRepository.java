@@ -2,11 +2,11 @@ package northwind.data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.inject.Inject;
 import javax.persistence.NoResultException;
 
-import org.jboss.logging.Logger;
 
 import northwind.model.Order;
 import northwind.report.MonthlySalesForYear;
