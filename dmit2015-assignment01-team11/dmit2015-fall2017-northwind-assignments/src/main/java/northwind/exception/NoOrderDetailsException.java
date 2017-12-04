@@ -1,5 +1,9 @@
 package northwind.exception;
 
-public class NoOrderDetailsException {
+@SuppressWarnings("serial")
+public class NoOrderDetailsException extends Exception{
 
+	public NoOrderDetailsException(String message) {
+		super(message);
+	}
 }
