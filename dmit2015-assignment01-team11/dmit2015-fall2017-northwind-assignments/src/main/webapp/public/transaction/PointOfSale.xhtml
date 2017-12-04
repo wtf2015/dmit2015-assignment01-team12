@@ -1,0 +1,107 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:p="http://primefaces.org/ui"  
+	xmlns:hf="http://highfaces.org" 
+	template="/WEB-INF/templates/bootsfaces-dashboard.xhtml">
+	
+	<ui:param name="title" value="[put page title here]" />
+	
+	<ui:define name="externalstyles">
+	</ui:define>
+	
+	<ui:define name="internalstyles">
+	</ui:define>
+
+	<ui:define name="maincontent">
+		
+		<b:jumbotron>
+			<h1>Point of Sale System</h1>
+		</b:jumbotron>
+		
+		<b:messages id="messages" />
+		
+		<b:form id="posForm" >
+		
+			
+			<p:outputPanel id="customerInfo">
+				<b:selectOneMenu id="customers" 
+				label="Customer"
+				value="#{shoppingCartController.currentSelectedCustomerId}"
+				onchange="ajax:shoppingCartController.changeBillingInfo()" 
+				update="@form">
+				<f:selectItem itemValue="" itemLabel="Choose a customer" />
+				<f:selectItems value="#{customerController.customer}"
+					var="customer"
+					itemValue="#{customer.customerID}"
+					itemLabel="#{customer.contactName}" />				
+				</b:selectOneMenu> 
+			</p:outputPanel>
+			
+			<div class="form-inline">
+			<b:inputText id="productId"
+				label="Product Id"
+				value="#{shoppingCartController.currentProductId}">
+					<b:focus />
+			</b:inputText>
+			<b:commandButton value="Add to Cart"
+				ajax="true" update=":messages posForm:shoppingCartTable"
+				actionListener="#{shoppingCartController.addItemWithProductId()}">			
+			</b:commandButton>
+			</div>
+			<p:outputPanel id="cartPanel">
+		
+				<b:dataTable id="shoppingCartTable"
+					value="#{shoppingCartController.items}"
+					var="singleItem"
+					class="shoppingCartTable">
+				
+					
+				
+					<b:dataTableColumn label="Product ID" value="#{singleItem.product.productID}">
+					</b:dataTableColumn>
+					
+					<b:dataTableColumn label="Product Name" value="#{singleItem.product.productName}">
+					</b:dataTableColumn>
+					
+					<b:dataTableColumn label="Qty">
+						<b:inputText value="#{singleItem.quantity}" size="2" update="@(.shoppingCartTable)">
+						</b:inputText>
+					</b:dataTableColumn>
+					
+					<b:dataTableColumn label="Unit Price" value="#{of:formatCurrency(singleItem.unitPrice, '$')}">
+					</b:dataTableColumn>
+					
+					<b:dataTableColumn label="Product Total" value="#{of:formatCurrency(singleItem.unitPrice * singleItem.quantity, '$')}">
+					</b:dataTableColumn>
+											
+					<b:dataTableColumn label="">
+						<b:commandButton icon="trash"
+							look="Danger"
+							value="Delete"
+							immediate="true"
+							actionListener="#{shoppingCartController.removeItem(singleItem)}"
+							ajax="true" 
+							update="posForm:cartPanel">							
+						</b:commandButton>
+					</b:dataTableColumn>
+				</b:dataTable>
+			
+			</p:outputPanel>			
+			
+		</b:form>
+
+		
+				
+	</ui:define>
+
+</ui:composition>

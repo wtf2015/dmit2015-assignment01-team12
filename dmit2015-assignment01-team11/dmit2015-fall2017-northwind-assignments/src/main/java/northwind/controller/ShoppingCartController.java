@@ -14,11 +14,10 @@ import org.omnifaces.el.functions.Numbers;
 import org.omnifaces.util.Faces;
 import org.omnifaces.util.Messages;
 
-
-import northwind.exception.IllegalQuantityException;
+import northwind.exception.illegalQuantityException;
 import northwind.exception.NoOrderDetailsException;
-import northwind.service.InvoiceService;
-import northwind.service.TrackService;
+import northwind.service.OrderService;
+import northwind.service.ProductService;
 import northwind.data.CustomerRepository;
 import northwind.model.Customer;
 import northwind.model.OrderDetail;
@@ -51,7 +50,7 @@ private Set<OrderDetail> items = new HashSet<>();	// +getter
 	private String billingPostalCode;					// +getter +setter
 	
 	@Inject
-	private OrderDetailService orderdetailService;
+	private OrderService orderService;
 	
 	public void changeBillingInfo() {
 		int customerId = currentSelectedCustomerId;
@@ -97,7 +96,7 @@ private Set<OrderDetail> items = new HashSet<>();	// +getter
 			// Item is already in the shopping cart
 			// Get existing item and increment quantity by 1
 			OrderDetail existingItem = items.stream().filter( 
-					singleItem -> singleItem.getProduct().getProductId() == currentProduct.getProductId() )
+					singleItem -> singleItem.getProduct().getProductID() == currentProduct.getProductID() )
 					.findFirst().orElse(null);
 			if (existingItem != null) {
 				existingItem.setQuantity( (short) (existingItem.getQuantity() + 1));
@@ -124,7 +123,7 @@ private Set<OrderDetail> items = new HashSet<>();	// +getter
 			int customerId = currentSelectedCustomerId;
 			Customer invoiceCustomer = customerRepository.find(customerId);
 		
-			int orderId = orderService.createInvoice(
+			int orderId = orderService.createOrder(
 					invoiceCustomer,
 					billingName,
 					billingAddress,
@@ -145,7 +144,7 @@ private Set<OrderDetail> items = new HashSet<>();	// +getter
 			billingPostalCode = null;
 			// empty the shopping cart
 			items.clear();			
-		} catch( NoOrderDetailsException | IllegalQuantityException e ) {
+		} catch( NoOrderDetailsException | illegalQuantityException e ) {
 			Messages.addGlobalError(e.getMessage());
 		} catch( Exception e ) {
 			Messages.addGlobalError("Create order was not successful");
