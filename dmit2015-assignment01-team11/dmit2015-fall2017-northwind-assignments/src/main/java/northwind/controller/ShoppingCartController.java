@@ -37,7 +37,7 @@ private Set<OrderDetail> items = new HashSet<>();	// +getter
 	private Integer currentProductId;						// +getter +setter
 	
 	@NotNull(message="Customer field value selection is required")
-	private Integer currentSelectedCustomerId;			// +getter +setter
+	private String currentSelectedCustomerId;			// +getter +setter
 	
 	@Inject
 	private CustomerRepository customerRepository;
@@ -53,7 +53,7 @@ private Set<OrderDetail> items = new HashSet<>();	// +getter
 	private OrderService orderService;
 	
 	public void changeBillingInfo() {
-		int customerId = currentSelectedCustomerId;
+		String customerId = currentSelectedCustomerId;
 		Customer invoiceCustomer = customerRepository.find(customerId);
 		billingName = invoiceCustomer.getCompanyName();
 		billingAddress = invoiceCustomer.getAddress();
@@ -120,7 +120,7 @@ private Set<OrderDetail> items = new HashSet<>();	// +getter
 
 	public void submitOrder() {
 		try {
-			int customerId = currentSelectedCustomerId;
+			String customerId = currentSelectedCustomerId;
 			Customer invoiceCustomer = customerRepository.find(customerId);
 		
 			int orderId = orderService.createOrder(
@@ -164,11 +164,11 @@ private Set<OrderDetail> items = new HashSet<>();	// +getter
 		this.currentProductId = currentProductId;
 	}
 
-	public Integer getCurrentSelectedCustomerId() {
+	public String getCurrentSelectedCustomerId() {
 		return currentSelectedCustomerId;
 	}
 
-	public void setCurrentSelectedCustomerId(Integer currentSelectedCustomerId) {
+	public void setCurrentSelectedCustomerId(String currentSelectedCustomerId) {
 		this.currentSelectedCustomerId = currentSelectedCustomerId;
 	}
 	

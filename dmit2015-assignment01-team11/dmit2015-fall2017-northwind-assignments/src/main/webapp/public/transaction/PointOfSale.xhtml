@@ -31,20 +31,39 @@
 		<b:messages id="messages" />
 		
 		<b:form id="posForm" >
-		
 			
-			<p:outputPanel id="customerInfo">
-				<b:selectOneMenu id="customers" 
-				label="Customer"
-				value="#{shoppingCartController.currentSelectedCustomerId}"
-				onchange="ajax:shoppingCartController.changeBillingInfo()" 
-				update="@form">
-				<f:selectItem itemValue="" itemLabel="Choose a customer" />
-				<f:selectItems value="#{customerController.customer}"
-					var="customer"
-					itemValue="#{customer.customerID}"
-					itemLabel="#{customer.contactName}" />				
-				</b:selectOneMenu> 
+			<p:outputPanel id="customerInfo">			
+				
+				
+				<b:panel title="Step 1: Select Customer" title-style="color:#000000" collapsible="true">
+					<b:selectOneMenu id="customers" 
+					label="Customer"
+					value="#{shoppingCartController.currentSelectedCustomerId}"
+					onchange="ajax:shoppingCartController.changeBillingInfo()" 
+					update="@form">
+					<f:selectItem itemValue="" itemLabel="Choose a customer" />
+					<f:selectItems value="#{customerController.customer}"
+						var="customer"
+						itemValue="#{customer.customerID}"
+						itemLabel="#{customer.contactName}" />				
+					</b:selectOneMenu>
+					<b:panel title="Customer Details" title-style="color:#000000" collapsible="false">
+						<h:outputText value="#{customerController.currentSelectedCustomer.customerID}" readonly="true"/>
+						<br />
+						<h:outputText value="#{customerController.currentSelectedCustomer.companyName}" readonly="true" />
+						<br />
+						<h:outputText value="#{customerController.currentSelectedCustomer.contactTitle}" readonly="true" />
+						<br />
+						<h:outputText value="#{customerController.currentSelectedCustomer.address}" readonly="true" />
+						<br />
+						<h:outputText value="#{customerController.currentSelectedCustomer.city}" readonly="true" />
+						<br />
+						<h:outputText value="#{customerController.currentSelectedCustomer.region}" readonly="true" />
+						<br />
+						<h:outputText value="#{customerController.currentSelectedCustomer.country}" readonly="true" />
+						<br />	
+					</b:panel>											
+				</b:panel> 
 			</p:outputPanel>
 			
 			<div class="form-inline">
