@@ -39,6 +39,10 @@ private Set<OrderDetail> items = new HashSet<>();	// +getter
 	@NotNull(message="Customer field value selection is required")
 	private String currentSelectedCustomerId;			// +getter +setter
 	
+	private String currentSelectedEmployeeId;			// +getter +setter
+	
+	private String currentSelectedShipper;
+
 	@Inject
 	private CustomerRepository customerRepository;
 	
@@ -182,6 +186,13 @@ private Set<OrderDetail> items = new HashSet<>();	// +getter
 		this.currentSelectedCustomerId = currentSelectedCustomerId;
 	}
 	
+	public String getCurrentSelectedEmployeeId() {
+		return currentSelectedEmployeeId;
+	}
+
+	public void setCurrentSelectedEmployeeId(String currentSelectedEmployeeId) {
+		this.currentSelectedEmployeeId = currentSelectedEmployeeId;
+	}
 	public String getBillingName() {
 		return billingName;
 	}
@@ -268,6 +279,14 @@ private Set<OrderDetail> items = new HashSet<>();	// +getter
 			totalPrice += item.getQuantity() * item.getUnitPrice().doubleValue();
 		}
 		return Numbers.formatCurrency(totalPrice, "$");
+	}
+
+	public String getCurrentSelectedShipper() {
+		return currentSelectedShipper;
+	}
+
+	public void setCurrentSelectedShipper(String currentSelectedShipper) {
+		this.currentSelectedShipper = currentSelectedShipper;
 	}
 
 }
