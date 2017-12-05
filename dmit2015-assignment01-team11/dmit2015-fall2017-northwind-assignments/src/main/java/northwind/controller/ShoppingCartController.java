@@ -33,7 +33,7 @@ private Set<OrderDetail> items = new HashSet<>();	// +getter
 	@Inject
 	private ProductService productService;
 	
-	@NotNull(message="ProductId field value is required")
+//	@NotNull(message="ProductId field value is required")
 	private Integer currentProductId;						// +getter +setter
 	
 	@NotNull(message="Customer field value selection is required")
