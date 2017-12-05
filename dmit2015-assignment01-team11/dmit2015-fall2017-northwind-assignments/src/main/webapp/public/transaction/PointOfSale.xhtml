@@ -238,7 +238,10 @@
 							var="shipper"
 							itemValue="#{shipper.shipperID}"
 							itemLabel="#{shipper.companyName}" />				
-					</b:selectOneMenu>					
+					</b:selectOneMenu>
+					<p:outputLabel value="Required Date" /><br />
+        			<p:calendar id="calender" value="#{calendarView.date}" showOn="button" pattern="MM/dd/yyyy" />
+
 			</b:panel>
 		</b:form>
 
