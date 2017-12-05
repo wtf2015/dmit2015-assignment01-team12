@@ -45,16 +45,16 @@
 					<f:selectItems value="#{customerController.customer}"
 						var="customer"
 						itemValue="#{customer.customerID}"
-						itemLabel="#{customer.contactName}" />				
+						itemLabel="#{customer.companyName}" />				
 					</b:selectOneMenu>
 					<b:panel title="Customer Details" title-style="color:#000000" collapsible="false">
 						<h:outputText value="#{shoppingCartController.currentSelectedCustomerId}" readonly="true"/>
 						<br />
 						<h:outputText value="#{shoppingCartController.billingName}" readonly="true"/>
 						<br />
-						<h:outputText value="#{shoppingCartController.currentSelectedCustomerId}" readonly="true"/>
+						<h:outputText value="#{shoppingCartController.billingContactName}" readonly="true"/>
 						<br />
-						<h:outputText value="#{shoppingCartController.currentSelectedCustomerId}" readonly="true"/>
+						<h:outputText value="#{shoppingCartController.billingContactTitle}" readonly="true"/>
 						<br />
 						<h:outputText value="#{shoppingCartController.billingAddress}" readonly="true"/>
 						<br />
@@ -66,9 +66,10 @@
 						<br />
 						<h:outputText value="#{shoppingCartController.billingCountry}" readonly="true"/>
 						<br />
-						<h:outputText value="#{shoppingCartController.currentSelectedCustomerId}" readonly="true"/>
+						<h:outputText value="#{shoppingCartController.billingPhone}" readonly="true"/>
 						<br />
-						
+						<h:outputText value="#{shoppingCartController.billingFax}" readonly="true"/>
+						<br />
 						
 					</b:panel>
 															

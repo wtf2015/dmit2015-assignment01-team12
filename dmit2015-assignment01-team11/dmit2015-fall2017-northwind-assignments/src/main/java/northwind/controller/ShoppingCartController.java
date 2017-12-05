@@ -33,7 +33,7 @@ private Set<OrderDetail> items = new HashSet<>();	// +getter
 	@Inject
 	private ProductService productService;
 	
-//	@NotNull(message="ProductId field value is required")
+	@NotNull(message="ProductId field value is required")
 	private Integer currentProductId;						// +getter +setter
 	
 	@NotNull(message="Customer field value selection is required")
@@ -48,7 +48,13 @@ private Set<OrderDetail> items = new HashSet<>();	// +getter
 	private String billingRegion;						// +getter +setter
 	private String billingCountry;						// +getter +setter
 	private String billingPostalCode;					// +getter +setter
+	private String billingContactTitle;					// +getter +setter
+	private String billingContactName;					// +getter +setter
+	private String billingPhone;					// +getter +setter
+	private String billingFax;					// +getter +setter
 	
+
+
 	@Inject
 	private OrderService orderService;
 	
@@ -61,6 +67,10 @@ private Set<OrderDetail> items = new HashSet<>();	// +getter
 		billingRegion = invoiceCustomer.getRegion();
 		billingCountry = invoiceCustomer.getCountry();
 		billingPostalCode = invoiceCustomer.getPostalCode();
+		billingContactTitle = invoiceCustomer.getContactTitle();
+		billingContactName = invoiceCustomer.getContactName();
+		billingPhone = invoiceCustomer.getPhone();
+		billingFax = invoiceCustomer.getFax();
 	}
 	
 	public void addItemWithProductId() {
@@ -219,6 +229,37 @@ private Set<OrderDetail> items = new HashSet<>();	// +getter
 
 	public void setBillingPostalCode(String billingPostalCode) {
 		this.billingPostalCode = billingPostalCode;
+	}
+	public String getBillingContactTitle() {
+		return billingContactTitle;
+	}
+
+	public void setBillingContactTitle(String billingContactTitle) {
+		this.billingContactTitle = billingContactTitle;
+	}
+
+	public String getBillingContactName() {
+		return billingContactName;
+	}
+
+	public void setBillingContactName(String billingContactName) {
+		this.billingContactName = billingContactName;
+	}
+
+	public String getBillingPhone() {
+		return billingPhone;
+	}
+
+	public void setBillingPhone(String billingPhone) {
+		this.billingPhone = billingPhone;
+	}
+
+	public String getBillingFax() {
+		return billingFax;
+	}
+
+	public void setBillingFax(String billingFax) {
+		this.billingFax = billingFax;
 	}
 
 	public String getTotalPrice() {
