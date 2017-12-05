@@ -240,9 +240,49 @@
 							itemLabel="#{shipper.companyName}" />				
 					</b:selectOneMenu>
 					<p:outputLabel value="Required Date" /><br />
-        			<p:calendar id="calender" value="#{calendarView.date}" showOn="button" pattern="MM/dd/yyyy" />
+        			<p:calendar id="calender" value="#{calendarView.date}" showOn="button" pattern="MM/dd/yyyy" ReadOnly="true" />
 
 			</b:panel>
+			
+			<b:panel title="Step 4: Shipping Info" title-style="color:#000000" collapsible="true">
+			
+				<b:inputText id="name"
+					label="Shipping Name"
+					value="#{shoppingCartController.billingName}">
+				</b:inputText>
+				
+				<b:inputText id="address"
+					label="Shipping Address"
+					value="#{shoppingCartController.billingAddress}">
+				</b:inputText>
+
+				<b:inputText id="city"
+					label="Billing City"
+					value="#{shoppingCartController.billingCity}">
+				</b:inputText>
+	
+				<b:inputText id="state"
+					label="Billing State"
+					value="#{shoppingCartController.billingRegion}">
+				</b:inputText>	
+				
+				<b:inputText id="postalCode"
+					label="Billing Postal Code"
+					value="#{shoppingCartController.billingPostalCode}">
+				</b:inputText>			
+				
+				<b:inputText id="country"
+					label="Billing Country"
+					value="#{shoppingCartController.billingCountry}">
+				</b:inputText>
+				
+				<b:commandButton value="Submit Invoice"
+					look="primary"
+					ajax="false" 
+					actionListener="#{shoppingCartController.submitOrder}">				
+				</b:commandButton>
+			</b:panel>
+			
 		</b:form>
 
 		
