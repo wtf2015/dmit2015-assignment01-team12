@@ -120,10 +120,7 @@
 		</form-login-config>
 	</login-config>
 	
-	<error-page>
-		<error-code>401</error-code>
-		<location>/public/error401.xhtml</location>
-	</error-page>
+	
 	<error-page>
 		<error-code>403</error-code>
 		<location>/public/error403.xhtml</location>
