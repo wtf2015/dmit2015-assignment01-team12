@@ -33,7 +33,8 @@
         	<b:navBar brand="Northwind" brandHref="#" inverse="true" fixed="top" fluid="true">
             
             <b:navbarLinks pull="right">
-            <b:navLink value="Point of Sale" outcome="/public/transaction/pointOfSale.xhtml"></b:navLink>
+            	<b:navLink value="Point of Sale" outcome="/public/transaction/PointOfSale.xhtml"></b:navLink>
+            
             	<h:form style="display:inline" styleClass="form-inline">
 		          <b:selectOneMenu value="#{theme.currentTheme}" style="width:180px;margin-top:8px"
 		            onchange="$('.theme-selector-button').click()">
@@ -67,7 +68,7 @@
             </b:navbarLinks>
             <b:form>  
 		        <b:navbarLinks pull="right">
-		        	<b:navLink value="Sign In" outcome="/public/PointOfSale.xhtml" rendered="#{not sessionController.loggedIn}"></b:navLink>  
+		        	<b:navLink value="Sign In" outcome="/public/transaction/PointOfSale.xhtml" rendered="#{not sessionController.loggedIn}"></b:navLink>  
 		        			        	
 		       		<b:navCommandLink value="Logout #{sessionController.remoteUser}" action="#{sessionController.logout()}" 
 		       			rendered="#{sessionController.loggedIn}"></b:navCommandLink>	        

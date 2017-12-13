@@ -63,7 +63,7 @@
 		<display-name>Administrator Area</display-name>
 		<web-resource-collection>
 			<web-resource-name>Administrator Resources</web-resource-name>
-			<url-pattern>/public/crud/*</url-pattern>			
+			<url-pattern>/public/report/*</url-pattern>			
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>Administrator</role-name>
@@ -75,8 +75,7 @@
 		<web-resource-collection>
 			<web-resource-name>Employee Resources</web-resource-name>
 			<url-pattern>/public/transaction/PointOfSale.xhtml</url-pattern>
-			<url-pattern>/public/reports/*</url-pattern>
-			<url-pattern>/public/query/*</url-pattern>
+			<url-pattern>/public/qurey/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>Administrator</role-name>
@@ -88,7 +87,7 @@
 		<display-name>Customer Area</display-name>
 		<web-resource-collection>
 			<web-resource-name>Customer Resources</web-resource-name>
-			<url-pattern>/public/transaction/createPlaylist.xhtml</url-pattern>
+			<url-pattern>/public/orderDetail.xhtml</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>Administrator</role-name>

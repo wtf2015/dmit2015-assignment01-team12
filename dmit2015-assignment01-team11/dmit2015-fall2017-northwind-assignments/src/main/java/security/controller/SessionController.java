@@ -15,7 +15,7 @@ public class SessionController implements Serializable {
 
 	public String logout() throws IOException {
 		Faces.invalidateSession();
-		return "/public/PointOfSale.xhtml?faces-redirect=true";
+		return "/index.xhtml?faces-redirect=true";
 	}
 	
 	public boolean isLoggedIn() {
