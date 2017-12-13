@@ -30,9 +30,10 @@
 
     <h:body style="padding-top: 60px">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.5.2/holder.min.js"></script>
-        <b:navBar brand="Northwind" brandHref="#" inverse="true" fixed="top" fluid="true">
+        	<b:navBar brand="Northwind" brandHref="#" inverse="true" fixed="top" fluid="true">
             
             <b:navbarLinks pull="right">
+            <b:navLink value="Point of Sale" outcome="/public/transaction/pointOfSale.xhtml"></b:navLink>
             	<h:form style="display:inline" styleClass="form-inline">
 		          <b:selectOneMenu value="#{theme.currentTheme}" style="width:180px;margin-top:8px"
 		            onchange="$('.theme-selector-button').click()">
@@ -64,6 +65,14 @@
                 <b:navLink value="Profile" href="#"></b:navLink>
                 <b:navLink value="Help" href="#"></b:navLink> -->
             </b:navbarLinks>
+            <b:form>  
+		        <b:navbarLinks pull="right">
+		        	<b:navLink value="Sign In" outcome="/public/login.xhtml" rendered="#{not sessionController.loggedIn}"></b:navLink>  
+		        			        	
+		       		<b:navCommandLink value="Logout #{sessionController.remoteUser}" action="#{sessionController.logout()}" 
+		       			rendered="#{sessionController.loggedIn}"></b:navCommandLink>	        
+				</b:navbarLinks>
+			</b:form>
         </b:navBar>
 
         <b:container fluid="true">
