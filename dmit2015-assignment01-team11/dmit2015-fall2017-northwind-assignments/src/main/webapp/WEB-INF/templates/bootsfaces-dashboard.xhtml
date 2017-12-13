@@ -34,6 +34,11 @@
             
             <b:navbarLinks pull="right">
             	<b:navLink value="Point of Sale" outcome="/public/transaction/PointOfSale.xhtml"></b:navLink>
+            	<b:dropMenu value="Create">
+	            	<b:navLink value="New User" outcome="/public/qurey/createAppUser.xhtml"></b:navLink>
+	            	<b:navLink value="New Category" outcome="/public/qurey/createCategory.xhtml"></b:navLink>
+	            	<b:navLink value="New Customer" outcome="/public/qurey/createCustomer.xhtml"></b:navLink>
+	            </b:dropMenu>  
             
             	<h:form style="display:inline" styleClass="form-inline">
 		          <b:selectOneMenu value="#{theme.currentTheme}" style="width:180px;margin-top:8px"
