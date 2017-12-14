@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+			  
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+<title>Northwind - Create New Shipper</title>
+</head>
+<body>
+
+<div class="container">
+	<h2>Create New Shipper</h2>
+	
+	<div id="editor" class="section panel panel-primary">
+        <div class="panel-heading">
+            Edit Shipper
+        </div>
+
+        <div class="panel-body">
+            <div class="form-group">
+                <label>Company Name</label>
+                <input class="form-control" data-bind="value: companyName" />
+                <label>Phone</label>
+                <input class="form-control" data-bind="value: phone" />
+            </div>
+            <button class="btn btn-primary" data-bind="click: createShipper">Save</button>
+            <button class="btn btn-default" onclick="handleCancelClick()" >Cancel</button>
+      </div>
+    </div>
+</div>
+
+<script>
+function handleCancelClick() {
+	window.location.href = "viewShippers.html";
+}
+
+function Shipper(data) {
+	var self = this;
+	self.companyName = data.companyName;
+	self.phone = data.phone;
+}
+
+function ShipperViewModel() {
+	var self = this;
+	self.companyName = ko.observable("");
+	self.phone = ko.observable("");
+	
+	self.createShipper = function() {		
+		var NorthwindWebAPI = "/dmit2015-assignment01-wtf11/rest/webapi/shippers";		
+		$.ajax(NorthwindWebAPI, {
+			data: ko.toJSON( { companyName: self.companyName(), phone: self.phone() } ),
+			type: "POST",
+			contentType: "application/json",
+			success: function(result) { 
+				alert('Successfully created new shipper'); 
+				self.companyName("");
+				self.phone("");
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+				alert('Error creating new shipper');
+			}
+		});
+	}
+	
+}
+
+ko.applyBindings(new ShipperViewModel());
+</script>
+
+</body>
+</html>

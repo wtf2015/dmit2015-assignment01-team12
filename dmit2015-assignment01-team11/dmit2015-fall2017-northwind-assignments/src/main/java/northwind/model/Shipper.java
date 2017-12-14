@@ -3,13 +3,16 @@ package northwind.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.List;
 
 /**
  * The persistent class for the Shippers database table.
  * 
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Table(name="Shippers")
 @NamedQuery(name="Shipper.findAll", query="SELECT s FROM Shipper s")
@@ -26,7 +29,8 @@ public class Shipper implements Serializable {
 
 	@Column(name="Phone")
 	private String phone;
-
+	
+	@XmlTransient
 	//bi-directional many-to-one association to Order
 	@OneToMany(mappedBy="shipper")
 	private List<Order> orders;
