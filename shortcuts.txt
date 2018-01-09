@@ -1,2 +1,3 @@
 alt+z word warp
 alt+w insert tag
+alt+highlight  highlight mutiple lines
