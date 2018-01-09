@@ -18,3 +18,9 @@ header+nav+main+footer
 <footer></footer>
 
 reference:https://docs.emmet.io/cheat-sheet/
+
+
+3 ways of styles
+1. External Styles
+2. Embeded Styles
+3. Inline Styles
