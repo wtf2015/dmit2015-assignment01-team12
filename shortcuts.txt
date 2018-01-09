@@ -7,3 +7,12 @@ alt+highlight  highlight mutiple lines
 div.name + tab automatically form <div class="name"></div>
 
 section*number automatically form numbers of sections eg. create 3 divs (div*3 + tab)
+
+> child nest
++ sibling
+
+header+nav+main+footer
+<header></header>
+<nav></nav>
+<main></main>
+<footer></footer>
