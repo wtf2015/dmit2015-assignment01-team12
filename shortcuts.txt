@@ -5,3 +5,5 @@ alt+z word warp
 alt+highlight  highlight mutiple lines
 
 div.name + tab automatically form <div class="name"></div>
+
+section*number automatically form numbers of sections
