@@ -6,4 +6,4 @@ alt+highlight  highlight mutiple lines
 
 div.name + tab automatically form <div class="name"></div>
 
-section*number automatically form numbers of sections
+section*number automatically form numbers of sections eg. create 3 divs (div*3 + tab)
