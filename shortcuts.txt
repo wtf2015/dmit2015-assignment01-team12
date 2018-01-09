@@ -1,1 +1,2 @@
 alt+z word warp
+alt+w insert tag
