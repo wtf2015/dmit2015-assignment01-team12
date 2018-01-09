@@ -16,3 +16,5 @@ header+nav+main+footer
 <nav></nav>
 <main></main>
 <footer></footer>
+
+reference:https://docs.emmet.io/cheat-sheet/
