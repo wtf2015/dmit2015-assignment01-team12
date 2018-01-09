@@ -25,6 +25,6 @@ reference:https://docs.emmet.io/cheat-sheet/
 2. Embeded Styles
 3. Inline Styles
 
-1. Cascade last rule applies wins
+1. Cascade: last rule applies wins
 2. Inheratince
 3. Specifity
