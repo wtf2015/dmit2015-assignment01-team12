@@ -30,3 +30,6 @@ reference:https://docs.emmet.io/cheat-sheet/
 3. Specifity
 
 css source: https://developer.mozilla.org/en-US/docs/Web/CSS
+
+
+centered for height >>>>>> line-height:max height;  eg(line-height: 80px;)
