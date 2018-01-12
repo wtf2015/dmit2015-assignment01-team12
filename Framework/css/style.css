@@ -7,4 +7,30 @@ body{
     line-height: 1.5;
 }
 
+/*
+----------------------------------------------
+            MAIN SITE NAVIGATION
+----------------------------------------------
+*/
 
+.site-navigation{
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25)
+}
+
+/*Any ul inside of a class called site nav*/
+.site-navigation ul{
+    float: right;
+    list-style-type: none;
+    margin-right: 36px;
+}
+
+.site-navigation img{
+    height: 60px;
+    padding: 10px;
+}
+
+.site-navigation li{
+    display: inline-block;
+    margin-right: 36px;
+    line-height: 80px;
+}
