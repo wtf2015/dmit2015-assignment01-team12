@@ -9,7 +9,7 @@ body{
 
 /*
 ----------------------------------------------
-            MAIN SITE NAVIGATION
+************ MAIN SITE NAVIGATION ************
 ----------------------------------------------
 */
 
@@ -33,4 +33,58 @@ body{
     display: inline-block;
     margin-right: 36px;
     line-height: 80px;
+}
+
+/*
+------------------------------------------------
+**************** PAGE MARQUEE ******************
+------------------------------------------------
+*/
+
+.page-marquee{
+    height: 600px;
+    background-color: #f3f3f3;
+    text-align: center;
+    padding-top: 40px;
+    font-weight: 400;
+}
+
+.marquee-container{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.page-marquee h1{
+    font-size: 96px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.page-marquee p:first-of-type{
+    margin-bottom: 20px;
+    font-size: 28px;
+    color:rgba(141, 141, 141, 0.55);
+}
+
+.call-to-action{
+    background: linear-gradient(to bottom, #ff4a4a, #fe3535);
+    padding: 12px 24px;
+    color: #fff;
+    /*box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.25);*/
+    border-radius: 8px;
+    font-size: 24px;
+    margin-bottom: 96px;
+}
+
+.page-marquee p:last-of-type{
+    font-size: 36px;
+    color:  rgba(48, 48, 48)
+}
+
+.hosting-plans{
+    background: red;
+    width:380px;
+    height:300px;
+    margin: 10px;
+    float: left;
 }
