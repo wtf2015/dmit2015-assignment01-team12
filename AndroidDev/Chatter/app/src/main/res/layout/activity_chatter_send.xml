@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/send_chatter_background_color"
+    tools:context="ca.nait.weite.storedata.ChatterSendActitiyy">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/send_chatter_title"
+        android:textSize="25sp"
+        android:textColor="@color/send_chatter_title_color"
+        android:gravity="center_horizontal"/>
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:hint="@string/send_chatter_hint"
+        android:background="@color/send_chatter_edit_text_background_color"
+        android:id="@+id/send_chatter_edit_text"/>
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/send_chatter_button_text"
+        android:textSize="15sp"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/send_chatter_button"/>
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/view_chatter_button_text"
+        android:textSize="15sp"
+        android:layout_margin="5dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/view_chatter_button"/>
+
+</LinearLayout>
