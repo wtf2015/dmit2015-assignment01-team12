@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_item_view_chatter"
+        android:title="View Chatter"/>
+    <item android:id="@+id/menu_item_list_chatter"
+        android:title="List Chatter"/>
+    <item android:id="@+id/menu_item_custom_list"
+        android:title="Custom List"/>
+
+</menu>

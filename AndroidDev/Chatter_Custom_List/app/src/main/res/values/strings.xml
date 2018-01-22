@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Chatter</string>
+    <string name="send_chatter_title">Say Something</string>
+    <string name="send_chatter_hint">Type chat here</string>
+    <string name="send_chatter_button_text">Send Chat</string>
+    <string name="receive_chatter_title">Recent Chats</string>
+    <string name="view_chatter_button_text">View Chats</string>
+</resources>
