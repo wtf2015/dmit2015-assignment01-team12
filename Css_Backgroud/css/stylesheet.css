@@ -19,7 +19,6 @@ body{
 
 .site-nav li{
     display: inline-block;
-
 }
 
 .banner-container{
@@ -37,7 +36,7 @@ body{
 }
 
 .left-arrow-control, .right-arrow-control{
-    margin: 0 auto;
+    margin-top: 180px;
 }
 
 .left-arrow-control{
