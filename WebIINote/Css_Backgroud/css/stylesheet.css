@@ -30,7 +30,7 @@ body{
     url(../img/page-banner-background.jpg);
     background-repeat: no repeat;
     background-size: cover;
-    background-position: fixed;
+    background-position: left bottom;
 }
 
 .left-arrow-control, .page-header-content{
