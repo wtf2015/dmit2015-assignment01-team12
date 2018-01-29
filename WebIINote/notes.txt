@@ -1,4 +1,4 @@
-alt+z word warp
+alt+z word warpc
 
 (extension : htmltagwrap) alt+w insert tag
 
