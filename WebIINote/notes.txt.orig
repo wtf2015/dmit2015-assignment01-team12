@@ -1,0 +1,39 @@
+<<<<<<< HEAD
+z alt+z word warp
+=======
+alt+z word warpc
+>>>>>>> ee252ae27c63f51ae1a5be94612edca4aa0840c8
+
+(extension : htmltagwrap) alt+w insert tag
+
+alt+highlight  highlight mutiple lines
+
+div.name + tab automatically form <div class="name"></div>
+
+section*number automatically form numbers of sections eg. create 3 divs (div*3 + tab)
+
+> child nest
++ sibling
+
+header+nav+main+footer
+<header></header>
+<nav></nav>
+<main></main>
+<footer></footer>
+
+reference:https://docs.emmet.io/cheat-sheet/
+
+
+3 ways of styles
+1. External Styles
+2. Embeded Styles
+3. Inline Styles
+
+1. Cascade: last rule applies wins
+2. Inheratince
+3. Specifity
+
+css source: https://developer.mozilla.org/en-US/docs/Web/CSS
+
+
+centered for height >>>>>> line-height:max height;  eg(line-height: 80px;)
