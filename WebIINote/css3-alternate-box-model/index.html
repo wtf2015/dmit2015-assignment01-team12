@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Basic Grid Demo</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,600,600i" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+</head>
+
+<body>
+
+
+    <header class="masthead">
+        <code class="identifier">
+            <pre>.page-header-content</pre>
+        </code>
+        <h2>Box Sizing CSS Property</h2>
+        <p>The box-sizing CSS property defines how the user agent should calculate the total width and height of an element.</p>
+
+    </header>
+
+    <main class="container">
+        <aside class="intro">
+            <code class="identifier">
+                <pre>.content-container</pre>
+            </code>
+            <h2>Normal Box Model</h2>
+            <p>By default in the CSS box model, the width and height you assign to an element is applied only to the element's
+                content box. If the element has any border or padding, this is then added to the width and height to arrive
+                at the size of the box that's rendered on the screen. This means that when you set width and height you have
+                to adjust the value you give to allow for any border or padding that may be added.</p>
+            <p>The box-sizing property can be used to adjust this behavior:</p>
+        </aside>
+        <div class="content-container clearfix">
+            <aside class="content box-model-history">
+                <code class="identifier">
+                    <pre>.box-model-history</pre>
+                </code>
+                <h2>Box Model History</h2>
+                <p> Since the dawn of CSS, the box model has worked like this by default:</p>
+
+                <p>width + padding + border = actual visible/rendered width of an element's box</p>
+
+                <p>This can be a little counter-intuitive, since the width and height you set for an element both go out the
+                    window as soon as you start adding padding and borders to the element.</p>
+                    <a class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing">MDN Web Docs</a>
+            </aside>
+            <aside class="content content-box">
+                <code class="identifier">
+                    <pre>.content-box</pre>
+                </code>
+                <h2>Content Box</h2>
+                <p>content-box gives you the default CSS box-sizing behavior. If you set an element's width to 100 pixels, then
+                    the element's content box will be 100 pixels wide, and the width of any border or padding will be added
+                    to the final rendered width.</p>
+                    <a class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing">MDN Web Docs</a>
+            </aside>
+            <aside class="content border-box">
+                <code class="identifier">
+                    <pre>.border-box</pre>
+                </code>
+                <h2>Border Box</h2>
+                <p>border-box tells the browser to account for any border and padding in the values you specify for width and
+                    height. If you set an element's width to 100 pixels, that 100 pixels will include any border or padding
+                    you added, and the content box will shrink to absorb that extra width. This typically makes it much easier
+                    to size elements.</p> <a class="external-link" href="https://css-tricks.com/box-sizing/">CSS Tricks</a>
+            </aside>
+
+        </div>
+
+        <aside class="box-sizing-code">
+          
+                <h2>Universal Box Sizing</h2>
+              
+     
+<code>
+<pre>
+    
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+</pre>
+</code>
+    
+               
+                <p>By default in the CSS box model, the width and height you assign to an element is applied only to the element's
+                    content box. If the element has any border or padding, this is then added to the width and height to arrive
+                    at the size of the box that's rendered on the screen. This means that when you set width and height you have
+                    to adjust the value you give to allow for any border or padding that may be added.</p>
+                <p>The box-sizing property can be used to adjust this behavior:</p>
+            </aside>
+    </main>
+
+    <div class="footer-container">
+        <footer class="footer-content clearfix">
+            
+                   
+                <code class="identifier">
+                <pre>.footer-content</pre>
+                </code>
+      
+
+        <ul class="footer-links">
+                <li> <h3>Some Useful Links</h3> </li>
+                 <li>est porta efficitur</li> 
+                 <li>vitae sit amet </li>
+                 <li>felis. Fusce ullam</li>
+                  <li>vel rutrum. Fusce</li>
+                  <li>Phasellus tristique</li>
+                  <li>Leo magna, vel dapibus </li>
+         </ul>
+
+         <ul class="footer-links">
+                <li> <h3>Company Information</h3> </li>
+                 <li>est porta efficitur</li> 
+                 <li>vitae sit amet </li>
+                 <li>felis. Fusce ullam</li>
+                 <li>corper lectus in</li>
+                  <li>Phasellus tristique</li>
+                  <li>Leo magna, vel dapibus </li>
+         </ul>
+
+         <ul class="footer-links">
+                <li> <h3>Find Us On Social Media At</h3> </li>
+               
+                 <li>corper lectus in</li>
+                 <li>felis tempor eges</li>
+                <li> tas. Fusce tempus</li>
+                 <li>vestibulum purus</li>
+                  <li>vel rutrum. Fusce</li>
+                  
+         </ul>
+        </footer>
+    </div> 
+     
+
+</body>
+
+</html>

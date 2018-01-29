@@ -1,0 +1,132 @@
+ 
+
+html{
+	font-size:20px;
+}
+body {
+	line-height: 1.5;
+	font-family: 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
+}
+p{
+    margin-bottom:24px;
+}
+.content-box, .border-box, .box-model-history{
+    color:rgb(219, 241, 244);
+    font-size:14px;
+}
+/*
+--------------------------------------------------------------
+                CLASS NAME STYLES
+--------------------------------------------------------------
+*/
+pre {
+    display: inline-block;
+    font-family: "Courier 10 Pitch", Courier, monospace;
+    color: #ddca7e;
+    background: #282c34;
+	padding: .5em .8em;
+    border-radius: .2em;
+    margin-bottom:24px;
+}
+
+code {
+	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+/*
+--------------------------------------------------------------
+                PAGE GENERAL STYES
+--------------------------------------------------------------
+*/
+.masthead{
+    background-color:rgb(174, 189, 191);
+    margin-bottom: 24px;
+    text-align:center;
+    padding:60px;
+}
+ 
+/* 
+________________________________________________________________
+
+                    BOX MODEL EXAMPLE
+
+________________________________________________________________
+*/
+.content-container, .footer-content{
+    width:80%;
+    margin:0 auto;
+    margin-bottom:48px;
+    padding:60px;
+}
+
+.content-container{
+    background:rgb(209, 226, 229);
+}
+.content{
+    background-color: rgb(81, 118, 123);
+    margin-bottom:60px;
+    padding:20px;
+}
+.content:last-of-type{
+    margin-right: 0;
+    margin-bottom:0;
+}
+.content pre{
+    margin-bottom: 12px;
+}
+
+.intro, .box-sizing-code{
+    width:800px;
+    margin:24px auto;
+}
+.box-sizing-code pre{
+    text-align:left;
+    padding:24px;
+}
+.box-sizing-code{
+    text-align: left;
+}
+
+a.external-link, a.external-link:active{
+color:white;
+}
+
+a.external-link{
+    text-decoration: none;
+    font-size:18px;
+    padding:10px 24px;
+    border-radius: 12px;
+    background:white;
+    background:linear-gradient(to top,   rgb(1, 31, 24) 40%,  rgb(7, 23, 24));
+    box-shadow:0 0 5px 0px rgba(0,0,0,0.25);
+}
+
+.footer-container{
+    background:rgb(17, 64, 72);
+}
+footer{
+    clear:both;
+}
+.footer-links  {
+    width:280px;
+    color: #ddca7e;
+    list-style: none;
+    font-size:14px;
+    float:left;
+    margin-right:60px;
+    text-align: center;
+}
+.footer-links:last-of-type{
+    margin:0;
+}
+.footer-links h3{
+    font-size:24px;
+ 
+}
+.helpful-links li{
+    text-align: center;
+    width:200px;
+}
+code{
+    display:block;
+    clear:both;
+}
