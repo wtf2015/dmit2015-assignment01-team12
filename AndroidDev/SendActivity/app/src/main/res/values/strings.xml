@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">DemoApp2</string>
-    <string name="main_title_text">Send Activity</string>
-    <string name="edit_text_hint">Enter data here</string>
-    <string name="enter_data_button">Click Me</string>
-</resources>
